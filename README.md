@@ -88,12 +88,25 @@ npm run dev
 
 ## 🌟 Features
 
+### Core Social Features
 - Real-time messaging and notifications
 - AI-powered assistant
 - Post creation with media uploads
 - Social interactions (likes, comments, follows)
 - User profiles and communities
 - Progressive Web App (PWA)
+
+### 💬 Direct Messaging (NEW)
+- **Real-time Chat**: Socket.io powered live messaging
+- **Message Management**: Send, edit, and delete messages
+- **Reactions**: Emoji reactions on messages
+- **End-to-End Encryption**: Secure message encryption
+- **Typing Indicators**: See when others are typing
+- **Read Receipts**: Track message read status
+- **Group Chats**: Multi-user conversations
+- **AI Assistant**: Built-in chatbot support
+
+See [MESSAGING_FEATURE.md](MESSAGING_FEATURE.md) for detailed documentation.
 
 ## 🐳 Docker Services
 
@@ -106,6 +119,7 @@ npm run dev
 - [Docker Deployment Guide](DOCKER_DEPLOYMENT.md)
 - [Local Setup Guide](LOCAL_SETUP.md)
 - [App Structure](APP_MAP.md)
+- [Messaging Feature Documentation](MESSAGING_FEATURE.md)
 - [Frontend README](frontend/README.md)
 - [Backend README](backend/README.md)
 

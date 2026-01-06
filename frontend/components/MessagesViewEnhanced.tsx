@@ -78,13 +78,14 @@ const MessagesView: React.FC<MessagesViewProps> = ({ currentUser, onInitiateCall
 
     // Listen for new messages
     messagingService.onMessageReceived((message: Message) => {
+      const msgChatId = message.chat_id || message.chatId;
       setChats(prevChats => {
         const updatedChats = prevChats.map(chat => {
-          if (chat.id === message.chat_id) {
+          if (chat.id === msgChatId) {
             return {
               ...chat,
               messages: [...(chat.messages || []), message],
-              lastMessageAt: new Date(message.timestamp)
+              lastMessageAt: new Date(message.timestamp || message.created_at || new Date())
             };
           }
           return chat;
@@ -92,7 +93,7 @@ const MessagesView: React.FC<MessagesViewProps> = ({ currentUser, onInitiateCall
         return updatedChats;
       });
       
-      if (activeChat?.id === message.chat_id) {
+      if (activeChat?.id === msgChatId) {
         setActiveChat(prev => prev ? {
           ...prev,
           messages: [...(prev.messages || []), message]
