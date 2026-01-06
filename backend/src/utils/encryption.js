@@ -111,3 +111,4 @@ export default {
   encryptWithPublicKey,
   decryptWithPrivateKey
 };
+backend/src/utils/encryption.js

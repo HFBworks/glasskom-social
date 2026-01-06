@@ -278,3 +278,4 @@ docker-compose up --build
 ## License
 
 Part of GlassKom Social platform.
+MESSAGING_FEATURE.md

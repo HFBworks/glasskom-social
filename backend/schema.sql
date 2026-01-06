@@ -163,3 +163,4 @@ CREATE INDEX IF NOT EXISTS idx_message_read_receipts_message_id ON message_read_
 CREATE INDEX IF NOT EXISTS idx_notifications_recipient_id ON notifications(recipient_id);
 CREATE INDEX IF NOT EXISTS idx_follows_follower_id ON follows(follower_id);
 CREATE INDEX IF NOT EXISTS idx_follows_following_id ON follows(following_id);
+backend/schema.sql

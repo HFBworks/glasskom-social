@@ -292,3 +292,4 @@ For issues or questions:
 - Enable gzip compression
 - Optimize Socket.io rooms
 - Consider message pagination for large chats
+QUICKSTART.md

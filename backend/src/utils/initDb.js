@@ -25,3 +25,4 @@ const initializeDatabase = async () => {
 };
 
 export default initializeDatabase;
+backend/src/utils/initDb.js

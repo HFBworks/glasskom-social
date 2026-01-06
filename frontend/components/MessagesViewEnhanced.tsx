@@ -476,3 +476,4 @@ const MessagesView: React.FC<MessagesViewProps> = ({ currentUser, onInitiateCall
 };
 
 export default MessagesView;
+frontend/components/MessagesViewEnhanced.tsx

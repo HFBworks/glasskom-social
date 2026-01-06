@@ -37,3 +37,4 @@ router.post('/chats/:chatId/typing', updateTypingStatus);
 router.get('/chats/:chatId/typing', getTypingUsers);
 
 export default router;
+backend/src/routes/messages.js

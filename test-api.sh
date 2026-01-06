@@ -185,3 +185,4 @@ echo "first to ensure the database schema is created."
 echo ""
 echo "To view detailed responses, you can run individual"
 echo "curl commands from the script."
+test-api.sh
