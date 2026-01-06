@@ -77,14 +77,25 @@ export interface Reaction {
 export interface Message {
   id: string;
   senderId: string;
+  sender_id?: string; // Backend format
+  chatId?: string; // Frontend format
+  chat_id?: string; // Backend format
   content: string; // Base64 Encrypted
   timestamp: Date;
+  created_at?: Date; // Backend format
   reactions: Reaction[];
   readBy: string[];
+  read_by?: any[]; // Backend format
   isEdited?: boolean;
+  is_edited?: boolean; // Backend format
   isDeletedEveryone?: boolean;
+  is_deleted_everyone?: boolean; // Backend format
   deletedFor?: string[];
+  deleted_for?: string[]; // Backend format
   isVoice?: boolean;
+  is_voice?: boolean; // Backend format
+  edited_at?: Date;
+  updated_at?: Date;
 }
 
 export type ChatFolder = 'inbox' | 'archived' | 'requests' | 'blocked';

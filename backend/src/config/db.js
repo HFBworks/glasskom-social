@@ -18,4 +18,5 @@ pool.on('connect', () => {
   console.log('🐘 Connected to PostgreSQL Pool');
 });
 
+export { pool };
 export default pool;

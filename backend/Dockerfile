@@ -12,6 +12,7 @@ RUN npm ci --only=production
 
 # Copy source code
 COPY src ./src
+COPY schema.sql ./schema.sql
 
 # Create uploads directory
 RUN mkdir -p uploads
