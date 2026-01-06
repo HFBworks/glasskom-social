@@ -12,29 +12,31 @@ import {
   updateTypingStatus,
   getTypingUsers
 } from '../controllers/messagesController.js';
+import { readLimiter, messageLimiter, reactionLimiter } from '../middleware/rateLimiter.js';
 
 const router = express.Router();
 
-// Chat routes
-router.get('/chats/user/:userId', getUserChats);
-router.get('/chats/:chatId', getChatById);
-router.post('/chats', createOrGetChat);
+// Chat routes - with read limiter
+router.get('/chats/user/:userId', readLimiter, getUserChats);
+router.get('/chats/:chatId', readLimiter, getChatById);
+router.post('/chats', messageLimiter, createOrGetChat);
 
-// Message routes
-router.post('/messages', sendMessage);
-router.put('/messages/:messageId', editMessage);
-router.delete('/messages/:messageId', deleteMessage);
+// Message routes - with message limiter
+router.post('/messages', messageLimiter, sendMessage);
+router.put('/messages/:messageId', messageLimiter, editMessage);
+router.delete('/messages/:messageId', messageLimiter, deleteMessage);
 
-// Reaction routes
-router.post('/messages/:messageId/reactions', addReaction);
-router.delete('/messages/:messageId/reactions', removeReaction);
+// Reaction routes - with reaction limiter
+router.post('/messages/:messageId/reactions', reactionLimiter, addReaction);
+router.delete('/messages/:messageId/reactions', reactionLimiter, removeReaction);
 
-// Read receipts
-router.post('/chats/:chatId/read', markMessagesAsRead);
+// Read receipts - with read limiter
+router.post('/chats/:chatId/read', readLimiter, markMessagesAsRead);
 
-// Typing indicators
-router.post('/chats/:chatId/typing', updateTypingStatus);
-router.get('/chats/:chatId/typing', getTypingUsers);
+// Typing indicators - with reaction limiter (similar frequency)
+router.post('/chats/:chatId/typing', reactionLimiter, updateTypingStatus);
+router.get('/chats/:chatId/typing', readLimiter, getTypingUsers);
 
 export default router;
+
 backend/src/routes/messages.js

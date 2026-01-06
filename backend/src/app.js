@@ -11,6 +11,7 @@ import searchRoutes from './routes/search.js';
 import uploadRoutes from './routes/upload.js';
 import messagesRoutes from './routes/messages.js';
 import initializeDatabase from './utils/initDb.js';
+import { apiLimiter } from './middleware/rateLimiter.js';
 
 dotenv.config();
 
@@ -35,6 +36,9 @@ app.use(cors({
 }));
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
+
+// Apply rate limiting to all API routes
+app.use('/api', apiLimiter);
 
 // Serve Static Uploads
 // CRITICAL: In the Docker container, /app/uploads is where the volume is mounted.
