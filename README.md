@@ -1,10 +1,23 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
-
 # GlassKom Social
 
 A modern, full-stack social media platform with AI-powered features, real-time messaging, and comprehensive social interactions.
+
+## 📁 Project Structure
+
+```
+glasskom-social/
+├── frontend/          # React + TypeScript + Vite
+│   ├── components/    # React components
+│   ├── services/      # API and service integrations
+│   ├── Dockerfile     # Frontend container
+│   └── package.json
+├── backend/           # Node.js + Express API
+│   ├── src/          # Backend source code
+│   ├── Dockerfile    # Backend container
+│   └── package.json
+├── docker-compose.yml # Multi-service orchestration
+└── README.md
+```
 
 ## 🚀 Quick Start
 
@@ -42,8 +55,14 @@ See [DOCKER_DEPLOYMENT.md](DOCKER_DEPLOYMENT.md) for detailed Dockploy setup.
 
 **Prerequisites:** Node.js 18+
 
+### Install All Dependencies
+```bash
+npm run install:all
+```
+
 ### Frontend
 ```bash
+cd frontend
 npm install
 cp .env.example .env.local
 # Set GEMINI_API_KEY and other variables
@@ -58,8 +77,6 @@ cp .env.example .env
 # Configure database and JWT_SECRET
 npm run dev
 ```
-
-View your app in AI Studio: https://ai.studio/apps/drive/1024kKZxqSz-StTQ4w9189pVTRoze1bWP
 
 ## 📦 Tech Stack
 
@@ -78,11 +95,19 @@ View your app in AI Studio: https://ai.studio/apps/drive/1024kKZxqSz-StTQ4w9189p
 - User profiles and communities
 - Progressive Web App (PWA)
 
+## 🐳 Docker Services
+
+- **Frontend** → Port 80 (Nginx)
+- **Backend API** → Port 3001 (Express)
+- **Database** → Port 5432 (PostgreSQL)
+
 ## 📖 Documentation
 
 - [Docker Deployment Guide](DOCKER_DEPLOYMENT.md)
 - [Local Setup Guide](LOCAL_SETUP.md)
 - [App Structure](APP_MAP.md)
+- [Frontend README](frontend/README.md)
+- [Backend README](backend/README.md)
 
 ## 🔧 Configuration
 

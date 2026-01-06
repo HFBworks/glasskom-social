@@ -5,9 +5,28 @@ This application is fully containerized and ready to deploy with Docker and Dock
 ## 🐳 Architecture
 
 The application consists of 3 services:
-- **Frontend**: React + Vite app served by Nginx (Port 80)
-- **API**: Node.js/Express backend (Port 3001)
+- **Frontend**: React + Vite app served by Nginx (Port 80) → `frontend/`
+- **API**: Node.js/Express backend (Port 3001) → `backend/`
 - **Database**: PostgreSQL 15 (Port 5432)
+
+## 📁 Directory Structure
+
+```
+glasskom-social/
+├── frontend/              # Frontend application
+│   ├── components/        # React components
+│   ├── services/         # API services
+│   ├── Dockerfile        # Frontend container definition
+│   ├── package.json      # Frontend dependencies
+│   └── vite.config.ts   # Vite configuration
+├── backend/              # Backend API
+│   ├── src/             # Backend source code
+│   ├── Dockerfile       # Backend container definition
+│   └── package.json     # Backend dependencies
+├── docker-compose.yml    # Multi-service orchestration
+├── .env.example         # Environment variables template
+└── dockploy.json        # Dockploy configuration
+```
 
 ## 📋 Prerequisites
 
@@ -81,8 +100,8 @@ API_URL=https://your-domain.com
 ## 🏗️ Service Details
 
 ### Frontend Service
-- **Build Context**: Root directory
-- **Dockerfile**: `./Dockerfile`
+- **Build Context**: `./frontend`
+- **Dockerfile**: `./frontend/Dockerfile`
 - **Port**: 80
 - **Dependencies**: API service
 - **Health Check**: HTTP GET on port 80
