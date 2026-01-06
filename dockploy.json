@@ -1,0 +1,92 @@
+{
+  "name": "glasskom-social",
+  "description": "GlassKom Social - A modern social media platform",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HFBworks/glasskom-social.git",
+    "branch": "main"
+  },
+  "deployment": {
+    "type": "docker-compose",
+    "composeFile": "docker-compose.yml",
+    "services": {
+      "frontend": {
+        "name": "Frontend",
+        "port": 80,
+        "public": true,
+        "healthCheck": {
+          "enabled": true,
+          "path": "/",
+          "interval": 30
+        }
+      },
+      "api": {
+        "name": "API",
+        "port": 3001,
+        "public": true,
+        "healthCheck": {
+          "enabled": true,
+          "path": "/health",
+          "interval": 30
+        }
+      },
+      "db": {
+        "name": "Database",
+        "port": 5432,
+        "public": false,
+        "healthCheck": {
+          "enabled": true,
+          "command": "pg_isready -U postgres",
+          "interval": 10
+        }
+      }
+    }
+  },
+  "environment": {
+    "required": [
+      "DB_USER",
+      "DB_PASSWORD",
+      "DB_NAME",
+      "JWT_SECRET",
+      "API_KEY"
+    ],
+    "optional": [
+      "CLIENT_URL",
+      "API_URL",
+      "NODE_ENV"
+    ]
+  },
+  "volumes": {
+    "pgdata": {
+      "description": "PostgreSQL data persistence"
+    },
+    "uploads": {
+      "description": "User uploaded files",
+      "path": "./uploads"
+    }
+  },
+  "ports": {
+    "frontend": 80,
+    "api": 3001,
+    "database": 5432
+  },
+  "networking": {
+    "type": "bridge",
+    "name": "glasskom-network"
+  },
+  "resources": {
+    "frontend": {
+      "cpus": "0.5",
+      "memory": "512M"
+    },
+    "api": {
+      "cpus": "1.0",
+      "memory": "1G"
+    },
+    "db": {
+      "cpus": "1.0",
+      "memory": "2G"
+    }
+  }
+}
