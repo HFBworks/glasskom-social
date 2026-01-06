@@ -1,0 +1,25 @@
+{
+  "version": "1.0.0",
+  "environment": "production",
+  "api_keys": {
+    "gemini": "process.env.API_KEY",
+    "firebase": {
+      "apiKey": "AIzaSyDlc6AXSjC3gj1qvFphoiwmnNkKbksXAVg",
+      "authDomain": "glasskom-social.firebaseapp.com",
+      "projectId": "glasskom-social",
+      "storageBucket": "glasskom-social.firebasestorage.app",
+      "messagingSenderId": "416894628604",
+      "appId": "1:416894628604:web:c9b1d10f241210c4141d79",
+      "measurementId": "G-PK09RV95H1"
+    }
+  },
+  "features": {
+    "ai_enhancement": true,
+    "realtime_chat": true,
+    "pwa_enabled": true
+  },
+  "endpoints": {
+    "media_storage": "/assets/uploads",
+    "backend_url": "http://localhost:3001"
+  }
+}

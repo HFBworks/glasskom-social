@@ -1,0 +1,8 @@
+{
+  "name": "GlassKom prev",
+  "description": "A next-generation social media platform featuring AI-powered content enhancement, intelligent interactions, and a modern, responsive design.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
